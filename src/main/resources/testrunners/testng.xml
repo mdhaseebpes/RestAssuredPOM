@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Rest API Test Suite" verbose="1" parallel="tests"
+       thread-count="3">
+
+    <listeners>
+        <listener class-name="listeners.ExtentReportListener"/>
+        <listener class-name="listeners.AllureReportListener"/>
+        <!--   <listener class-name="listeners.TesultsListener" />
+        !-->
+    </listeners>
+
+    <test name="Rest API regression Test" parallel="classes"
+          thread-count="3">
+        <classes>
+
+         <!--   <class name="testcases.CreateUser" />!-->
+            <class name="testcases.UserResult" />
+            <class name="testcases.GetUserTest" />
+            <class name="testcases.ImageAPITest" />
+            <class name="testcases.GetImgurAPITest" />
+
+
+        </classes>
+    </test>
+</suite>
