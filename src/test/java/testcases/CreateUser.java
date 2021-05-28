@@ -52,7 +52,8 @@ public class CreateUser {
 
     @DataProvider
     public Object[][] getUserData() {
-        return Excel.readData("usercreate");
+
+       return Excel.readData("usercreate");
     }
 
     @Description("Creating an New user with Data Provider")

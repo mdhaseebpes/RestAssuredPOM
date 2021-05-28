@@ -5,6 +5,7 @@ import java.util.Map;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import utils.TestUtil;
@@ -37,7 +38,7 @@ public class RestClient {
         if (setBaseURI(baseURI)) {
             RestClient.setBaseURI(baseURI);
             RequestSpecification request = RestClient.createRequest(contentFormat, token, params, log);
-            return executeGetAPI("GET", request, basePath);
+            return getResponse("GET", request, basePath);
         }
         return null;
 
@@ -75,11 +76,20 @@ public class RestClient {
             RestClient.setBaseURI(baseURI);
             RequestSpecification request = RestClient.createRequest(contentFormat, token, params, log);
             addRequestPayload(request, obj);
-            return executeGetAPI("POST", request, basePath);
+            return getResponse("POST", request, basePath);
         }
         return null;
 
     }
+
+
+    public static Response doDelete(String contentType, String baseURI, String basePath, Map<String, String> token,Map<String, String>
+            params, boolean log) {
+        RestClient.setBaseURI(baseURI);
+        RequestSpecification request = RestClient.createRequest(contentType, token,params, log);
+        return RestClient.getResponse("DELETE", request, basePath);
+    }
+
 
     /**
      * This method is pass the payload
@@ -133,7 +143,7 @@ public class RestClient {
     }
 
 
-    public static Response executeGetAPI(String httpMethod, RequestSpecification request, String basePath) {
+    public static Response getResponse(String httpMethod, RequestSpecification request, String basePath) {
         return executeAPI(httpMethod, request, basePath);
     }
 
@@ -151,7 +161,11 @@ public class RestClient {
                 response = request.put(basePath);
                 break;
             case "DELETE":
-                response = request.delete(basePath);
+                response = request.request(basePath);
+                break;
+
+            case "learn":
+                response = request.request(Method.GET,"");
                 break;
 
             default:

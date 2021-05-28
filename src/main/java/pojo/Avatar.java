@@ -5,6 +5,7 @@ public class Avatar {
     private String href;
 
     public Avatar(String href) {
+
         this.href = href;
     }
 
