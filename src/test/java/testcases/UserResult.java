@@ -14,7 +14,9 @@ import restclient.RestClient;
 import utils.Excel;
 import utils.TestUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserResult {
@@ -30,7 +32,11 @@ public class UserResult {
     {
         Self sf = new Self("http://www.sf.com");
         Edit ed = new Edit("http://www.ed.com");
-        Avatar av = new Avatar("http://www.av.com");
+        List<Avatar> av = new ArrayList<>();
+        Avatar av1 = new Avatar();
+        av1.setData("");
+        av1.setHref("http://www.av.com");
+        av.add(av1);
 
         Links ln = new Links(sf,ed,av);
 
@@ -67,7 +73,12 @@ public class UserResult {
     {
         Self sf = new Self("http://www.sf.com");
         Edit ed = new Edit("http://www.ed.com");
-        Avatar av = new Avatar("http://www.av.com");
+
+        List<Avatar> av = new ArrayList<>();
+        Avatar av1 = new Avatar();
+        av1.setData("");
+        av1.setHref("http://www.href.com");
+        av.add(av1);
 
         Links ln = new Links(sf,ed,av);
 

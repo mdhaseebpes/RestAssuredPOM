@@ -165,7 +165,7 @@ public class RestClient {
                 break;
 
             case "learn":
-                response = request.request(Method.GET,"");
+                response = request.request(Method.GET,basePath);
                 break;
 
             default:

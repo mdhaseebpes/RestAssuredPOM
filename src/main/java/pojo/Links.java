@@ -1,12 +1,14 @@
 package pojo;
 
+import java.util.List;
+
 public class Links {
 
     private Self self;
     private Edit edit;
-    private Avatar avatar;
+    private List<Avatar> avatar;
 
-    public Links(Self self, Edit edit, Avatar avatar) {
+    public Links(Self self, Edit edit, List<Avatar> avatar) {
         this.self = self;
         this.edit = edit;
         this.avatar = avatar;
@@ -28,11 +30,11 @@ public class Links {
         this.edit = edit;
     }
 
-    public Avatar getAvatar() {
+    public List<Avatar> getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Avatar avatar) {
+    public void setAvatar(List<Avatar> avatar) {
         this.avatar = avatar;
     }
 }

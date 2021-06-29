@@ -35,8 +35,6 @@ public class CreateUser {
     @Test
     public void createNewUser()
     {
-
-
        Response response = RestClient.doPost("JSON",baseUrI,basePath,token,null,true,user);
         System.out.println(response.getStatusCode());
         System.out.println(response.prettyPrint());
@@ -66,7 +64,5 @@ public class CreateUser {
         Response response = RestClient.doPost("JSON", baseUrI, basePath, token, null, true, user);
         System.out.println(response.getStatusCode());
         System.out.println(response.prettyPrint());
-
-
     }
 }

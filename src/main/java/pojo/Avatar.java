@@ -3,11 +3,19 @@ package pojo;
 public class Avatar {
 
     private String href;
+    private  String data;
 
-    public Avatar(String href) {
-
-        this.href = href;
+    public String getData() {
+        return data;
     }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+
+
+
 
     public String getHref() {
         return href;
